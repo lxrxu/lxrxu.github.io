@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>絮 - 作业合集</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "微软雅黑", sans-serif;
+        }
+
+        :root {
+            --guava-green: #73c990;
+            --guava-light: #e6f7ee;
+            --soft-pink: #ffb8c6;
+            --pink-bg: #ffeef2;
+            --text-color: #444;
+            --white: #fff;
+        }
+
+        body {
+            background: var(--guava-light);
+            color: var(--text-color);
+            overflow-x: hidden;
+            padding-bottom: 80px;
+        }
+
+        body::before,body::after{
+            content:'';
+            position:fixed;
+            width:300px;height:300px;
+            border-radius:50%;
+            z-index:-1;
+        }
+        body::before{
+            top:20%;left:5%;
+            background:radial-gradient(circle,rgba(115,201,144,20.15) 0%,transparent 70%);
+        }
+        body::after{
+            bottom:15%;right:5%;
+            background:radial-gradient(circle,rgba(255,184,198,0.15) 0%,transparent 70%);
+        }
+
+        nav {
+            background: var(--guava-green);
+            padding:15px 5%;
+            box-shadow:0 2px 10px rgba(115,201,144,0.25);
+        }
+        .nav-wrap{
+            max-width:1200px;
+            margin:0 auto;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+        .logo{
+            color:#fff;
+            font-size:22px;
+            font-weight:bold;
+        }
+        .nav-a{
+            color:#fff;
+            text-decoration:none;
+            margin-left:20px;
+            transition:0.3s;
+        }
+        .nav-a:hover{
+            color:var(--soft-pink);
+        }
+
+        .banner{
+            background:linear-gradient(135deg,var(--guava-green),var(--soft-pink));
+            color:#fff;
+            text-align:center;
+            padding:50px 5%;
+        }
+        .banner h1{
+            font-size:32px;
+            margin-bottom:10px;
+        }
+
+        /* 链接容器样式 */
+        .work-link-wrap{
+            max-width:700px;
+            margin:60px auto;
+            padding:0 5%;
+            background:#fff;
+            border-radius:18px;
+            padding:40px;
+            box-shadow:0 5px 15px rgba(115,201,144,0.15);
+        }
+
+        .work-link-wrap h2{
+            color:var(--guava-green);
+            margin-bottom:30px;
+            font-size:22px;
+            text-align:center;
+        }
+
+        /* 作业a标签链接样式 */
+        .work-link{
+            display:block;
+            width:100%;
+            line-height:3.2;
+            text-align:center;
+            font-size:16px;
+            color:var(--text-color);
+            text-decoration:none;
+            border-radius:8px;
+            transition:0.3s;
+            margin:8px 0;
+        }
+        .work-link:hover{
+            background:var(--pink-bg);
+            color:var(--guava-green);
+        }
+
+        footer{
+            position:fixed;
+            bottom:0;
+            left:0;
+            width:100%;
+            background:var(--guava-green);
+            color:#fff;
+            text-align:center;
+            padding:12px 0;
+            font-size:14px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-wrap">
+            <div class="logo">絮</div>
+            <div>
+                <a href="index.html" class="nav-a">返回首页</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="banner">
+        <h1>我的网页作业入口</h1>
+    </div>
+
+    <!-- ====================================== -->
+    <!-- 【重点在这里！！！】 -->
+    <!-- 就在这个 div 里面 放你的所有 a 标签作业链接 -->
+    <!-- 新作业直接照着格式往下复制一行就行 -->
+    <!-- ====================================== -->
+    <div class="work-link-wrap">
+        <h2>作业列表</h2>
+
+        <!-- 👇 所有作业a标签都放在这中间 -->
+        <a href="homework/zy1.html" target="_blank" class="work-link">作业1：我的第一个网页作业</a>
+        <a href="homework/zy2.html" target="_blank" class="work-link">作业2：我的第二个网页作业</a>
+        <a href="work3.html" target="_blank" class="work-link">作业3：第三个网页作业</a>
+
+    </div>
+    <!-- 到这里结束 👇 外面不用动 -->
+
+    <footer>絮 · 清新主题作业合集</footer>
+</body>
+</html>

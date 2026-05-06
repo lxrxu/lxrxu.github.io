@@ -1,14 +1,322 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    25051030313
-    <a href="./homework/zy1.html">Claude code 介绍</a>
-    <a href="./homework/zy2.html">如何培养认真严谨的习惯？</a>
-</head>
-</body>
-</html>
+    <title>絮 - 网页作业主页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "微软雅黑", sans-serif;
+        }
+
+        :root {
+            --guava-green: #73c990;
+            --guava-light: #e6f7ee;
+            --soft-pink: #ffb8c6;
+            --pink-bg: #ffeef2;
+            --text-color: #444;
+            --white: #fff;
+        }
+
+        body {
+            background: var(--guava-light);
+            color: var(--text-color);
+            overflow-x: hidden;
+            position: relative;
+            padding-bottom: 60px;
+        }
+
+        /* 柳絮飘落元素 */
+        .xu {
+            position: fixed;
+            top: -10%;
+            color: #fff;
+            font-size: 14px;
+            opacity: 0.7;
+            pointer-events: none;
+            z-index: -1;
+            animation: xuFall linear infinite;
+        }
+
+        @keyframes xuFall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* 页面背景装饰 填充留白 */
+        body::before,
+        body::after {
+            content: '';
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(115,201,144,0.15) 0%, transparent 70%);
+            z-index: -1;
+        }
+        body::before {
+            top: 30%;
+            left: 5%;
+        }
+        body::after {
+            bottom: 20%;
+            right: 5%;
+            background: radial-gradient(circle, rgba(255,184,198,0.15) 0%, transparent 70%);
+        }
+
+        /* 中间区域简约装饰线条 */
+        .decor-line {
+            position: absolute;
+            width: 60%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(115,201,144,0.3), transparent);
+            left: 20%;
+        }
+        .line1 { top: 45%; }
+        .line2 { top: 65%; }
+
+        /* 导航栏 */
+        nav {
+            background: var(--guava-green);
+            padding: 15px 5%;
+            box-shadow: 0 2px 10px rgba(115,201,144,0.25);
+            position: relative;
+            z-index: 10;
+        }
+        .nav-wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            color: #fff;
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+        .nav-a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: 0.3s;
+        }
+        .nav-a:hover {
+            color: var(--soft-pink);
+        }
+
+        /* 头部横幅 */
+        .banner {
+            background: linear-gradient(135deg,var(--guava-green),var(--soft-pink));
+            color: #fff;
+            text-align: center;
+            padding: 70px 5%;
+            position: relative;
+        }
+        .banner h1 {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+        .banner p {
+            font-size: 18px;
+            letter-spacing: 2px;
+        }
+
+        /* 作业容器居中 */
+        .main {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 5%;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* 单个作业卡片 升级加内部细节 */
+        .work-card {
+            display: block;
+            width: 360px;
+            background: var(--white);
+            border-radius: 18px;
+            padding: 45px 35px;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(115,201,144,0.15);
+            border-top: 5px solid var(--guava-green);
+            transition: all 0.3s ease;
+            color: var(--text-color);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .work-card:hover {
+            transform: translateY(-8px);
+            background: var(--pink-bg);
+            box-shadow: 0 12px 25px rgba(115,201,144,0.2);
+        }
+
+         .work-card h3 {
+             color: var(--guava-green);
+             font-size: 26px;
+             margin-bottom: 12px;
+         }
+         .work-desc {
+             font-size: 15px;
+             color: #888;
+             margin: 8px 0 20px;
+             line-height: 1.6;
+         }
+         .click-tip {
+             display: inline-block;
+             padding: 6px 18px;
+             border: 1px solid var(--guava-green);
+             border-radius: 30px;
+             font-size: 14px;
+             color: var(--guava-green);
+             transition: 0.3s;
+         }
+         .work-card:hover .click-tip {
+             background: var(--guava-green);
+             color: #fff;
+         }
+         /* 底部 */
+         footer {
+             width: 100%;
+             background: var(--guava-green);
+             color: #fff;
+             text-align: center;
+             padding: 15px 0;
+             position: fixed;
+             bottom: 0;
+             left: 0;
+             font-size: 14px;
+         }
+         /* 芭乐小粒子样式 */
+         .guava-dot {
+             position: absolute;
+             width: 12px;
+             height: 12px;
+             border-radius: 50%;
+             pointer-events: none;
+             animation: floatUp 1.2s ease-out forwards;
+         }
+         @keyframes floatUp {
+             0% {
+                 opacity: 1;
+                 transform: translateY(0) scale(1);
+             }
+             100% {
+                 opacity: 0;
+                 transform: translateY(-60px) scale(0.3);
+             }
+         }
+         /* 移动端适配 */
+         @media (max-width: 768px) {
+             .banner h1 {
+                 font-size: 28px;
+             }
+             .banner p {
+                 font-size: 16px;
+             }
+             .work-card {
+                 width: 100%;
+             }
+             .logo {
+                 font-size: 18px;
+             }
+             .nav-a {
+                 margin-left: 10px;
+                 font-size: 14px;
+             }
+         }
+     </style>
+ </head>
+ <body>
+     <!-- 页面留白装饰线条 -->
+     <div class="decor-line line1"></div>
+     <div class="decor-line line2"></div>
+     <!-- 导航 -->
+     <nav>
+         <div class="nav-wrap">
+             <div class="logo">絮</div>
+             <div>
+                 <a href="#" class="nav-a">首页</a>
+                 <a href="#work" class="nav-a">网页作业
+                 </a>
+             </div>
+         </div>
+     </nav>
+     <!-- 头部 -->
+     <div class="banner">
+         <h1>絮 · 主页</h1>
+         <p>未若柳絮因风起</p>
+         <p style="margin-top:8px;font-size:15px;opacity:0.8;">个人网页作业展示入口</p>
+     </div>
+     <!-- 网页作业卡片 带点击芭乐动态 -->
+     <div class="main" id="work">
+         <div class="work-card" id="cardBtn">
+             <h3>网页作业</h3>
+             <p class="work-desc">前端静态页面 | 清新简约风格设计</p>
+             <span class="click-tip">点击进入浏览
+             </span>
+         </div>
+     </div>
+     <footer>
+         絮 · 清新主题网页作业
+     </footer>
+     <script>
+         const card = document.getElementById('cardBtn');
+         // 芭乐色系：绿、浅绿、淡粉
+         const colors = ['#73c990','#96d8aa','#ffb8c6'];
+         // 卡片点击粒子特效
+         card.addEventListener('click', function(e){
+             for(let i = 0; i < 12; i++){
+                 let dot = document.createElement('div');
+                 dot.classList.add('guava-dot');
+                 dot.style.background = colors[Math.floor(Math.random() * colors.length)];
+                 let x = e.offsetX + (Math.random()-0.5)*60;
+                 let y = e.offsetY + (Math.random()-0.5)*60;
+                 dot.style.left = x + 'px';
+                 dot.style.top = y + 'px';
+                 this.appendChild(dot);
+                 setTimeout(()=>{
+                     dot.remove();
+                 },1200);
+             }
+             setTimeout(()=>{
+                 window.open('work.html','_blank');
+             },300);
+         });
+         // 生成飘落柳絮
+         function createXu() {
+             const xu = document.createElement('div');
+             xu.classList.add('xu');
+             xu.innerHTML = '❀';
+             // 随机大小、位置、下落时长
+             const size = Math.random() * 10 + 10;
+             xu.style.fontSize = size + 'px';
+             xu.style.left = Math.random() * 100 + 'vw';
+             const duration = Math.random() * 8 + 6;
+             xu.style.animationDuration = duration + 's';
+             document.body.appendChild(xu);
+             // 动画结束移除
+             setTimeout(()=>{
+            xu.remove();
+             }, duration * 1000);
+         }
+         // 定时生成柳絮
+         setInterval(createXu, 400);
+     </script>
+ </body>
+ </html>
