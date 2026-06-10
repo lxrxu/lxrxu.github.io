@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bj1{
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .bj2{
+            width: 800px;
+            height: 400px;
+            position: relative;
+        }
+
+        .bj3{
+            width: 100%;
+            height: 100%;
+            float: left;
+        }
+
+        .z1{
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .z2{
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+
+        }
+        .ds{
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+
+        }
+        .d{
+            float: left;
+            margin: 0 6px ;
+        }
+    </style>
+</head>
+<body>
+<div class="bj1">
+    <div class="bj2">
+        <img src="./banner1.jpg"  class="bj3">
+        <img src="./arrow1.png" class="z1">
+        <img src="./arrow2.png" class="z2">
+
+        <div class="ds">
+            <img src="./point1.png" class="d" >
+            <img src="./point2.png" class="d">
+            <img src="./point1.png" class="d">
+            <img src="./point1.png" class="d">
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
